@@ -30,14 +30,41 @@ var server = http.createServer(function(request, response){
   console.log('HTTP 路径为：\n' + pathWithQuery)
 
   if(path === '/'){
+    let string = fs.readFileSync('./index.html','utf8')
     response.statusCode = 200
     response.setHeader('content-type','text/html;charset=utf-8')
-    response.write('成功了')
+    response.write(string)
+    response.end()
+  }else if(path === '/main.js'){
+    let string = fs.readFileSync('./main.js','utf8')
+    response.statusCode = 200
+    response.setHeader('content-type','text/html;charset=utf-8')
+    response.write(string)
+    response.end()
+  }else if(path === '/xxx'){
+    response.statusCode = 200
+    response.setHeader('Content-Type', 'text/json;charset=utf-8')
+    //实现跨域请求(访问另一个网站的数据)的方法
+    // response.setHeader('Access-Control-Allow-Origin', 'http://frank.com:8001')
+    response.write(`
+    {
+      "note":{
+        "to": "小谷",
+        "from": "方方",
+        "heading": "打招呼",
+        "content": "hi"
+      }
+    }
+    `)
     response.end()
   }else{
     response.statusCode = 404
     response.setHeader('content-type','text/html;charset=utf-8')
-    response.write('失败了')
+    response.write(`
+      {
+        "error": "not found"
+      }
+    `)
     response.end()
   }
 
