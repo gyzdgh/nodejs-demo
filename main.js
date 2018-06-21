@@ -1,11 +1,3 @@
-window.jQuery = function(nodeOrSelector){
-    let nodes = {}
-    nodes.addClass = function(){}
-    nodes.html = function(){}
-    return nodes
-}
-
-window.$ = window.jQuery
 
 window.jQuery.ajax = function({url,method,body,headers}){
     return new Promise(function (resolve, reject) {
@@ -30,17 +22,17 @@ window.jQuery.ajax = function({url,method,body,headers}){
 
 myButton.addEventListener('click', (e) => {
     let promise = window.jQuery.ajax({
-        url: '/xxx',
+        url: '/gyz',
         method: 'get',
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
             'age': '18'
         }
     })
-
+    
     promise.then(
-        (text) => { console.log(text) },
-        (request) => { console.log(request) }
+        (text) => { console.log(text) }, //resolve的回调函数
+        (request) => { console.log(request) } //reject的回调函数
     )
 
 })

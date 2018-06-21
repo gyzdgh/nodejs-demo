@@ -1,17 +1,8 @@
-import { fail } from "assert";
 
-window.jQuery = function (nodeOrSelector) {
-    let nodes = {}
-    nodes.addClass = function () { }
-    node.html = function () { }
-    return nodes
-}
-
-window.$ = window.jQuery
 
 window.jQuery.ajax = function ({ url, method, body, successFn, failFn, headers }) {
     let request = new XMLHttpRequest
-    request.open = (method, url)
+    request.open(method, url)
     for (let key in headers) {
         let value = headers[key]
         request.setRequestHeader(key, value)
@@ -33,7 +24,7 @@ function f2(responseText) { }
 
 myButton.addEventListener('click', (e) => {
     window.jQuery.ajax({
-        url: '/frank',
+        url: '/gyz',
         method: 'get',
         headers: {
             'content-type': 'application/x-www-form-urlencoded',

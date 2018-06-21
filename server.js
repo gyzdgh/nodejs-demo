@@ -41,7 +41,7 @@ var server = http.createServer(function(request, response){
     response.setHeader('content-type','text/html;charset=utf-8')
     response.write(string)
     response.end()
-  }else if(path === '/xxx'){
+  }else if(path === '/gyz'){
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/json;charset=utf-8')
     //实现跨域请求(访问另一个网站的数据)的方法
@@ -49,8 +49,8 @@ var server = http.createServer(function(request, response){
     response.write(`
     {
       "note":{
-        "to": "小谷",
-        "from": "方方",
+        "to": "小明",
+        "from": "小红",
         "heading": "打招呼",
         "content": "hi"
       }
