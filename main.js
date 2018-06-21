@@ -7,12 +7,6 @@ window.jQuery = function(nodeOrSelector){
 
 window.$ = window.jQuery
 
-window.Promise = function(fn){
-    return{
-        then:function(){}
-    }
-}
-
 window.jQuery.ajax = function({url,method,body,headers}){
     return new Promise(function (resolve, reject) {
         let request = new XMLHttpRequest()
@@ -40,7 +34,7 @@ myButton.addEventListener('click', (e) => {
         method: 'get',
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            'frank': '18'
+            'age': '18'
         }
     })
 
